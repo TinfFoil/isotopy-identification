@@ -1,6 +1,6 @@
 # Creating a corpus of subtitles for the analysis of medical dramas
 
-This repository contains the software for the automatic alignment of temporal annotations and subtitles.
+This folder contains the software for the automatic alignment of temporal annotations and subtitles.
 
 ## Contents
 
