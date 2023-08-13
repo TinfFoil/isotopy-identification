@@ -22,4 +22,4 @@ F1-measures of the best models on test:
 
 # Meta
 
-[Alice Fedotova](https://www.linkedin.com/in/alice-fedotova/) - [ffedox](https://github.com/ffedox) - [alice.fedotova@studio.unibo.it](mailto:alice.fedotova@studio.unibo.it)
+[Alice Fedotova](https://www.linkedin.com/in/alice-fedotova/) – [ffedox](https://github.com/ffedox) – [alice.fedotova@studio.unibo.it](mailto:alice.fedotova@studio.unibo.it)
