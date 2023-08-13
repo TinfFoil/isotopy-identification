@@ -4,7 +4,7 @@ This repository contains the code for the paper "Towards the Automatic Identific
 
 # Contents
 
-1. [isotopy-identification/subtitles](https://github.com/TinfFoil/isotopy-identification/tree/main/subtitles): software for the alignment of temporal annotations and subtitles.
-2. [isotopy-identification/keyframes](https://github.com/TinfFoil/isotopy-identification/tree/main/keyframes): scripts for extracting the keyframes of the segments.
+1. `subtitles` contains the software for the alignment of temporal annotations and subtitles. 
+2. `keyframes` contains the scripts for extracting the keyframes of the segments.
 3. 
 
