@@ -4,7 +4,7 @@ This repository contains the code for the paper "Towards the Automatic Identific
 
 The aim of the experiments was addressing the problem of automatic isotopy identification, a novel task in the field of automated content analysis aimed at reducing the cost of annotation for the study of medical dramas. The work first involved expanding a subset of the [Medical Dramas Dataset](https://osf.io/24tus/) by including subtitles and keyframes for each segment from the TV show Grey's Anatomy. On the basis of the obtained corpus, experiments were conducted using unimodal and multimodal transformer-based models ([CLIP](https://huggingface.co/docs/transformers/model_doc/clip), [BERT](https://huggingface.co/docs/transformers/model_doc/bert) and [MMBT](https://github.com/facebookresearch/mmbt)). Two different classification approaches were also compared: the first approach consisted in employing a single multiclass classifier, while the second involved using the one-vs-the-rest approach. 
 
-# Contents
+# Subfolders
 
 1. `subtitles` contains the software used for the aligning the temporal annotations and the subtitles. 
 2. `keyframes` contains the scripts used for extracting the keyframes of the segments.
@@ -20,4 +20,6 @@ F1-measures of the best models on test:
 |    `BERT`   |        0.672        |    0.686     |
 |    `MMBT`   |        0.723        |    0.713     |
 
+# Meta
 
+[Alice Fedotova](https://www.linkedin.com/in/alice-fedotova/) - [ffedox](https://github.com/ffedox) - [alice.fedotova@studio.unibo.it](mailto:alice.fedotova@studio.unibo.it)
