@@ -1,6 +1,6 @@
 # Keyframes
 
-This folder contains the software used to extract the keyframes, which are required to train the multimodal model.
+This folder contains the scripts used to extract the keyframes, which are required to train the multimodal model.
 
 ## Requirements
 
