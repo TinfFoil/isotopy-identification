@@ -12,6 +12,7 @@ The aim of the experiments was addressing the problem of automatic isotopy ident
 
 # Results
 
+F1-measures of the best models on test.
 
 |    Model    | Multiclass F1 (All) | One-vs-the-rest F1 (All) |
 |:-----------:|:-------------------:|:------------:|
@@ -20,4 +21,3 @@ The aim of the experiments was addressing the problem of automatic isotopy ident
 |    `MMBT`   |        0.723        |    0.713     |
 
 
-Test F1-measures of the best models on test.
