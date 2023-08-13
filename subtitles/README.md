@@ -1,4 +1,4 @@
-# Creating a corpus of subtitles for the analysis of medical dramas
+# Subtitles
 
 This folder contains the software for the automatic alignment of temporal annotations and subtitles.
 
