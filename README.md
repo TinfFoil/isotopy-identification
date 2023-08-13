@@ -12,7 +12,8 @@ The aim of the experiments was addressing the problem of automatic isotopy ident
 
 # Results
 
-| Model            | Multiclass F1 (e) | All F1 (e) | PP F1 (e) | SP F1 (e) | MC F1 (e) |
+|                  | Multiclass        |                 One-vs-the-rest                |
+| Model            | All F1            | All F1     | PP F1 (e) | SP F1 (e) | MC F1 (e) |
 | ---------------- | ----------------- | ---------- | --------- | --------- | --------- |
 | `CLIP (3)`       | 0.536 (3)         | 0.443 (2)  | 0.696 (3) | 0.559     | 0.566     |
 | `BERT (3)`       | 0.672 (2)         | 0.563 (2)  | 0.788 (2) | 0.706     | 0.686     |
