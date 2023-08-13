@@ -17,5 +17,5 @@ A folder with:
 
 ## Notes
 
-To split the whole dataset into episodes, use [split_data.py](https://github.com/ffedox/isotopy-identification/blob/main/keyframes/split_data.py).
+[Split_data.py](https://github.com/ffedox/isotopy-identification/blob/main/keyframes/split_data.py) can be used to split the whole dataset into episodes.
 
