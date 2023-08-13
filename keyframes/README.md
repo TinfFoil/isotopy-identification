@@ -1,6 +1,6 @@
 # Expanding the corpus by extracting a keyframe for each segment
 
-This folder contains the software used to extract the keyframes.
+This folder contains the software used to extract the keyframes, which are required to train the multimodal model.
 
 ## Requirements
 
