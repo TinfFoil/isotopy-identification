@@ -13,11 +13,11 @@ The aim of the experiments was addressing the problem of automatic isotopy ident
 # Results
 
 
-|    Model    | Multiclass F1 (All) | OvR F1 (All) |
+|    Model    | Multiclass F1 (All) | One-vs-the-rest F1 (All) |
 |:-----------:|:-------------------:|:------------:|
 |    `CLIP`   |        0.536        |    0.566     |
 |    `BERT`   |        0.672        |    0.686     |
 |    `MMBT`   |        0.723        |    0.713     |
 
 
-Test F1 scores of the best models. 
+Test F1-measures of the best models on test.
