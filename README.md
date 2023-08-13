@@ -12,7 +12,7 @@ The aim of the experiments was addressing the problem of automatic isotopy ident
 
 # Results
 
-F1-measures of the best models on test.
+F1-measures of the best models on test:
 
 |    Model    | Multiclass F1 (All) | One-vs-the-rest F1 (All) |
 |:-----------:|:-------------------:|:------------:|
