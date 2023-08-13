@@ -6,5 +6,5 @@ This repository contains the code for the paper "Towards the Automatic Identific
 
 1. `subtitles` contains the software for the alignment of temporal annotations and subtitles. 
 2. `keyframes` contains the scripts for extracting the keyframes of the segments.
-3. 
+3. `models` contains the scripts for running the experiments with CLIP, BERT and MMBT.
 
