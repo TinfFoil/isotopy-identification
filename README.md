@@ -8,5 +8,5 @@ The aim of the experiments was addressing the problem of automatic isotopy ident
 
 1. `subtitles` contains the software used for the aligning the temporal annotations and the subtitles. 
 2. `keyframes` contains the scripts used for extracting the keyframes of the segments.
-3. `models` contains the scripts used for running the experiments from the paper.
+3. `models` contains the scripts used for running the experiments with CLIP, BERT and MMBT.
 
