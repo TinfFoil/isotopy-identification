@@ -10,6 +10,14 @@ The aim of the experiments was addressing the problem of automatic isotopy ident
 2. `keyframes` contains the scripts used for extracting the keyframes of the segments.
 3. `models` contains the scripts used for running the experiments with CLIP, BERT and MMBT.
 
+# Requirements
+
+The repository contains a `Pipfile` with all required dependecies, which can be installed using pipenv: 
+
+```sh
+pipenv install Pipfile
+```
+
 # Results
 
 F1-measures of the best models on test:
@@ -20,6 +28,6 @@ F1-measures of the best models on test:
 |    `BERT`   |        0.672        |    0.686     |
 |    `MMBT`   |        0.723        |    0.713     |
 
-# Meta
+# Contacts
 
 [Alice Fedotova](https://www.linkedin.com/in/alice-fedotova/) – [ffedox](https://github.com/ffedox) – [alice.fedotova@studio.unibo.it](mailto:alice.fedotova@studio.unibo.it)
