@@ -132,7 +132,7 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
   def accuracy_function(preds, labels):
       preds_flat=np.argmax(preds, axis=1).flatten()
       labels_flat=labels.flatten()
-      return accuracy_score(labels_flat, preds_flat)# , average='binary')
+      return accuracy_score(labels_flat, preds_flat)
 
   # Evaluates the model using the validation set
   def evaluate(dataloader_val):
