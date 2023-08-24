@@ -319,7 +319,6 @@ def unimodal_multiclass(cv_fold_dir):
     #df_final.to_excel('predictions_analysis.xlsx', index=False, float_format='%.3f')
 
     misclassified_counts = df_final[df_final['prediction_status'] == 'wrong'].groupby(['true_labels', 'label']).size().reset_index(name='count')
-    #misclassified_counts.to_excel(os.path.join(os.getcwd(), 'misclassified_counts.xlsx'), index=False)
 
     # Generate the classification report
     report = classification_report(true_labels, predicted_labels, labels=[0, 1, 2], target_names=['Class 0', 'Class 1', 'Class 2'])
