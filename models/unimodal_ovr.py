@@ -18,25 +18,23 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
 
   class_name = str(class_name).upper()
 
-  #label_dict = {0: [1, 0, 0], 1: [0, 1, 0], 2: [0, 0, 1]}
-
   # read the JSON files into DataFrames
   train_data = pd.read_json(os.path.join(cv_fold_dir, class_json), lines=True)
   val_data = pd.read_json(os.path.join(cv_fold_dir, 'val.json'), lines=True)
   test_data = pd.read_json(os.path.join(cv_fold_dir, 'test.json'), lines=True)
 
-      # add the 'data_type' field based on the type of split
+  # add the 'data_type' field based on the type of split
   train_data = train_data.assign(data_type='train')
   val_data = val_data.assign(data_type='val')
   test_data = test_data.assign(data_type='test')
 
-      # concatenate the DataFrames into a final DataFrame
+  # concatenate the DataFrames into a final DataFrame
   final_data = pd.concat([train_data, val_data, test_data], ignore_index=True)
   data = final_data
 
   tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased", do_lower_case=True)
 
-      # Encode training dataset using the tokenizer
+  # Encode training dataset using the tokenizer
   encoded_data_train = tokenizer.batch_encode_plus(
           data[data.data_type == 'train']['Segment text'].values.tolist(),
           add_special_tokens=True,
@@ -47,7 +45,7 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
           return_tensors='pt'
       )
 
-      # Encode validation dataset using the tokenizer
+  # Encode validation dataset using the tokenizer
   encoded_data_val = tokenizer.batch_encode_plus(
           data[data.data_type == 'val']['Segment text'].values.tolist(),
           add_special_tokens=True,
@@ -58,62 +56,63 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
           return_tensors='pt'
       )
 
-      # Extract IDs, attention masks and labels from training dataset
+  # Extract IDs, attention masks and labels from training dataset
   input_ids_train = encoded_data_train['input_ids']
   attention_masks_train = encoded_data_train['attention_mask']
   labels_train = torch.tensor(data[data.data_type == 'train'][class_name].values)
   labels_train
           
-      # Extract IDs, attention masks and labels from validation dataset
+  # Extract IDs, attention masks and labels from validation dataset
   input_ids_val = encoded_data_val['input_ids']
   attention_masks_val = encoded_data_val['attention_mask']
   labels_val = torch.tensor(data[data.data_type == 'val'][class_name].values)
 
-      # Create train and validation dataset from extracted features
+  # Create train and validation dataset from extracted features
   dataset_train = TensorDataset(input_ids_train, attention_masks_train, labels_train)
   dataset_val = TensorDataset(input_ids_val, attention_masks_val, labels_val)
   print("Train dataset length: {}\nValidation dataset length: {}".format(len(dataset_train), len(dataset_val)))
 
-      # Define the size of each batch
+  # Define the size of each batch
   batch_size = 16
 
-      # Load training dataset
+  # Load training dataset
   dataloader_train= DataLoader(
           dataset_train,
           sampler=RandomSampler(dataset_train),
           batch_size=batch_size)
 
-      # Load valuation dataset
+  # Load valuation dataset
   dataloader_val= DataLoader(
           dataset_val,
           sampler=RandomSampler(dataset_val),
           batch_size=batch_size)
 
-      # Define model optimizer -> Adam
+  # Define model optimizer -> Adam
   optimizer = AdamW(
           model.parameters(),
           lr = 1e-5, 
           eps=1e-8
       )
-      # Define model scheduler
+  
+  # Define model scheduler
   epochs = 1
   scheduler = get_linear_schedule_with_warmup(optimizer,
                                                   num_warmup_steps=0,
                                                   num_training_steps=len(dataloader_train)*epochs)
 
-      # Define random seeds
+  # Define random seeds
   seed_val = 17
   random.seed(seed_val)
   np.random.seed(seed_val)
   torch.manual_seed(seed_val)
   torch.cuda.manual_seed_all(seed_val)
 
-      # Define processor type for torch
+  # Define processor type for torch
   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
   model.to(device)
   device
 
-      # Metrics
+  # Metrics
   def f1_score_func(preds, labels):
       preds_flat = np.argmax(preds, axis=1).flatten()
       labels_flat = labels.flatten()
@@ -135,7 +134,7 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
       labels_flat=labels.flatten()
       return accuracy_score(labels_flat, preds_flat)# , average='binary')
 
-      # Evaluates the model using the validation set
+  # Evaluates the model using the validation set
   def evaluate(dataloader_val):
     model.eval()
     loss_val_total = 0
@@ -167,7 +166,7 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
 
     return loss_val_avg, predictions, true_vals
 
-      # Initialize lists for storing metrics
+  # Initialize lists for storing metrics
   train_loss_list = []
   val_loss_list = []
   val_f1_list = []
@@ -175,7 +174,7 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
   val_recall_list = []
   val_acc_list = []
 
-      # Training loop
+  # Training loop
   for epoch in tqdm(range(1, epochs + 1)):
 
       model.train()  # model is training
@@ -203,7 +202,6 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
           scheduler.step()
           progress_bar.set_postfix({'training_loss': '{:.3f}'.format(loss.item() / len(batch))})
 
-          #torch.save(model, path)
       tqdm.write(f'\nEpoch {epoch}/{epochs}')
 
       loss_train_avg = loss_train_total / len(dataloader_train)
@@ -220,7 +218,7 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
       tqdm.write(f'Recall Score: {val_recall}')
       tqdm.write(f'Accuracy Score: {val_acc}')
 
-          # Append the values to the respective lists
+      # Append the values to the respective lists
       train_loss_list.append(loss_train_avg)
       val_loss_list.append(val_loss)
       val_f1_list.append(val_f1)
