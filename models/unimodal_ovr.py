@@ -95,7 +95,7 @@ def unimodal_ovr(cv_fold_dir, class_json, class_name):
       )
   
   # Define model scheduler
-  epochs = 1
+  epochs = 3
   scheduler = get_linear_schedule_with_warmup(optimizer,
                                                   num_warmup_steps=0,
                                                   num_training_steps=len(dataloader_train)*epochs)
