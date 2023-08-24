@@ -316,8 +316,7 @@ def unimodal_multiclass(cv_fold_dir):
     # Combine DataFrames and save to Excel file
     df_final = pd.concat([df_texts, df_true_labels, df_preds, df_probs], axis=1)
     df_final['prediction_status'] = np.where(df_final['true_labels'] == df_final['label'], 'correct', 'wrong')
-    #df_final.to_excel('predictions_analysis.xlsx', index=False, float_format='%.3f')
-
+  
     misclassified_counts = df_final[df_final['prediction_status'] == 'wrong'].groupby(['true_labels', 'label']).size().reset_index(name='count')
 
     # Generate the classification report
