@@ -59,15 +59,15 @@ def multimodal_ovr(cv_fold_dir, class_json, class_name):
   data_train = pd.read_json(os.path.join(cv_fold_dir, class_json), lines=True)
   data_val = pd.read_json(os.path.join(cv_fold_dir, 'val.json'), lines=True)
   data_test = pd.read_json(os.path.join(cv_fold_dir, 'test.json'), lines=True)
-	
-	#Load CLIP model and needed preprocessing
+	 
+  # Load CLIP model and needed preprocessing
   clip_model, preprocess = clip.load("RN50x4", device=device, jit=False)
 
-  #Freeze weights of CLIP feature encoder, as we will not finetune it.
+  # Freeze weights of CLIP feature encoder, as we will not finetune it.
   for p in clip_model.parameters():
     p.requires_grad = False
 
-  #Initialize needed variables. 
+  # nitialize needed variables
   num_image_embeds = 4
   num_labels = 1
   gradient_accumulation_steps = 20
@@ -78,7 +78,7 @@ def multimodal_ovr(cv_fold_dir, class_json, class_name):
   eval_batch_size = 8
   image_encoder_size = 288
   image_features_size = 640
-  num_train_epochs = 2
+  num_train_epochs = 3
 
   #Create a function that will prepare an image for CLIP encoder in a special manner. 
   #This function will split image into three tiles (by height or width, depending on the aspect ratio of the image). 
@@ -294,8 +294,6 @@ def multimodal_ovr(cv_fold_dir, class_json, class_name):
       return recall_score(labels_flat, preds_flat)
 
   def evaluate(model, tokenizer, criterion, dataloader, tres = 0.5): 
-    
-    # Eval!
     eval_loss = 0.0
     nb_eval_steps = 0
     preds = None
