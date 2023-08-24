@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+scikit-learn = "*"
+pandas = "*"
+openpyxl = "*"
+transformers = "*"
+tensorflow = "*"
+pillow = "*"
+madgrad = "*"
+clip = {git = "https://github.com/openai/CLIP.git"}
+matplotlib = "*"
+bert-tensorflow = "*"
+torch = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
