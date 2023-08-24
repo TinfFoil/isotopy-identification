@@ -12,7 +12,7 @@ The aim of the experiments was addressing the problem of automatic isotopy ident
 
 # Requirements
 
-The repository contains a `Pipfile` with all required dependecies, which can be installed using pipenv: 
+The repository contains a `Pipfile` with all required dependencies, which can be installed using pipenv: 
 
 ```sh
 pipenv install Pipfile
