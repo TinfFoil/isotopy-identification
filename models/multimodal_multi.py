@@ -163,7 +163,7 @@ def multimodal_multiclass(cv_fold_dir):
 
         label = torch.tensor(self.data[index]["label"], dtype=torch.long)
 
-        image = Image.open(os.path.join('/home/afedotova/thesis/dataset', self.data[index]["img_name"])).convert("RGB")
+        image = Image.open(os.path.join('/dataset_path/dataset', self.data[index]["img_name"])).convert("RGB")
         sliced_images = slice_image(image, 288)
         sliced_images = [np.array(self.transforms(im)) for im in sliced_images]
         image = resize_pad_image(image, image_encoder_size)
@@ -455,7 +455,7 @@ def multimodal_multiclass(cv_fold_dir):
             start_token, sentence, end_token = sentence[0], sentence[1:-1], sentence[-1]
             sentence = sentence[:self.max_seq_length]
 
-            image = Image.open(os.path.join('/home/afedotova/thesis/dataset', self.data[index]["img_name"])).convert("RGB")
+            image = Image.open(os.path.join('/dataset_path/dataset', self.data[index]["img_name"])).convert("RGB")
             sliced_images = slice_image(image, 288)
             sliced_images = [np.array(self.transforms(im)) for im in sliced_images]
             image = resize_pad_image(image, image_encoder_size)
@@ -586,7 +586,7 @@ def multimodal_multiclass(cv_fold_dir):
 # Loop through cv_fold_{i} directories
 for i in range(1, 11):
 
-        cv_fold_path = f'/home/afedotova/thesis/cv_fold_{i}'
+        cv_fold_path = f'cv_fold_path/cv_fold_{i}'
         
         # Create the model
         multimodal_multiclass(cv_fold_path)
