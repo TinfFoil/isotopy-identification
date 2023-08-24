@@ -18,16 +18,6 @@ The repository contains a `Pipfile` with all required dependecies, which can be 
 pipenv install Pipfile
 ```
 
-# Results
-
-F1-measures of the best models on test:
-
-|    Model    | Multiclass F1 (All) | One-vs-the-rest F1 (All) |
-|:-----------:|:-------------------:|:------------:|
-|    `CLIP`   |        0.536        |    0.566     |
-|    `BERT`   |        0.672        |    0.686     |
-|    `MMBT`   |        0.723        |    0.713     |
-
 # Contacts
 
 [Alice Fedotova](https://www.linkedin.com/in/alice-fedotova/) – [ffedox](https://github.com/ffedox) – [alice.fedotova@studio.unibo.it](mailto:alice.fedotova@studio.unibo.it)
