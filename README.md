@@ -18,6 +18,6 @@ The repository contains a `Pipfile` with all required dependencies, which can be
 pipenv install Pipfile
 ```
 
-# Contact
+# Contacts
 
 [Alice Fedotova](https://www.linkedin.com/in/alice-fedotova/) – [ffedox](https://github.com/ffedox) – [alice.fedotova@studio.unibo.it](mailto:alice.fedotova@studio.unibo.it)
