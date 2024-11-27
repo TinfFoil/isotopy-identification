@@ -1,6 +1,6 @@
 # Unimodal and multimodal automatic isotopy identification
 
-This repository contains the code for the paper "Towards the Automatic Identification of Isotopies" presented at the [14th Media Mutations International Conference](10.21428/93b7ef64.59f47006).
+This repository contains the code for the paper "Towards the Automatic Identification of Isotopies" by Alice Fedotova and Alberto Barrón-Cedeño, presented at the [14th Media Mutations International Conference](10.21428/93b7ef64.59f47006).
 
 # Overview
 
